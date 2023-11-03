@@ -32,34 +32,51 @@
                             <span>Dashboard</span>
                         </a>
                     </li>
-                    <li class="{{ request()->routeIs('admin') ? 'active open' : '' }}">
-                        <a href="{{ route('admin') }}">
-                            <i class="zmdi zmdi-account"></i>
-                            <span>Admin</span>
+                    <li
+                        class="{{ request()->routeIs('master.admin', 'master.customer', 'master.supplier', 'master.product') ? 'active open' : '' }}">
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="zmdi zmdi-lock"></i>
+                            <span>Master</span>
                         </a>
-                    </li>
-                    <li class="{{ request()->routeIs('customer') ? 'active open' : '' }}">
-                        <a href="{{ route('customer') }}">
-                            <i class="zmdi zmdi-accounts-alt"></i>
-                            <span>Pelanggan</span>
-                        </a>
-                    </li>
-                    <li class="{{ request()->routeIs('supplier') ? 'active open' : '' }}">
-                        <a href="{{ route('supplier') }}">
-                            <i class="zmdi zmdi-accounts-alt"></i>
-                            <span>Pemasok</span>
-                        </a>
-                    </li>
-                    <li class="{{ request()->routeIs('product') ? 'active open' : '' }}">
-                        <a href="{{ route('product') }}">
-                            <i class="zmdi zmdi-accounts-alt"></i>
-                            <span>Barang</span>
-                        </a>
+                        <ul class="ml-menu">
+                            <li class="{{ request()->routeIs('master.admin') ? 'active' : '' }}">
+                                <a href="{{ route('master.admin') }}">
+                                    <span>Admin</span>
+                                </a>
+                            </li>
+                            <li class="{{ request()->routeIs('master.customer') ? 'active' : '' }}">
+                                <a href="{{ route('master.customer') }}">
+                                    <span>Pelanggan</span>
+                                </a>
+                            </li>
+                            <li class="{{ request()->routeIs('master.supplier') ? 'active' : '' }}">
+                                <a href="{{ route('master.supplier') }}">
+                                    <span>Pemasok</span>
+                                </a>
+                            </li>
+                            <li class="{{ request()->routeIs('master.product') ? 'active' : '' }}">
+                                <a href="{{ route('master.product') }}">
+                                    <span>Barang</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="{{ request()->routeIs('sale') ? 'active open' : '' }}">
                         <a href="{{ route('sale') }}">
                             <i class="zmdi zmdi-accounts-alt"></i>
                             <span>Penjualan</span>
+                        </a>
+                    </li>
+                    <li class="{{ request()->routeIs('transaction') ? 'active open' : '' }}">
+                        <a href="{{ route('transaction') }}">
+                            <i class="zmdi zmdi-accounts-alt"></i>
+                            <span>Transaksi</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="">
+                            <i class="zmdi zmdi-accounts-alt"></i>
+                            <span>Laporan</span>
                         </a>
                     </li>
                 </ul>

@@ -26,7 +26,7 @@
             <h2><strong>All</strong> Penjualan List</h2>
             <ul class="header-dropdown">
                 <li>
-                    <a href="" class="btn btn-primary btn-round d-flex align-items-center">
+                    <a href="{{ route('transaction') }}" class="btn btn-primary btn-round d-flex align-items-center">
                         <i class="material-icons text-white">add</i>
                         <span>Tambah</span>
                     </a>

@@ -18,6 +18,9 @@ class SaleController extends Controller
             $query->with(['admin', 'customer']);
         }])->get();
         return datatables()->of($data)
+            ->addColumn('code', function (TransactionDetail $transactionDetail) {
+                return $transactionDetail->transaction?->code;
+            })
             ->addColumn('date', function (TransactionDetail $transactionDetail) {
                 return Carbon::parse($transactionDetail->transaction?->created_at)->format('d-m-Y');
             })

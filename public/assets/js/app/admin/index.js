@@ -9,7 +9,7 @@ var index = function () {
             responsive: true,
             dom: 'frtip',
             ajax: {
-                url: "/admin/datatable",
+                url: "/master/admin/datatable",
                 type: "POST"
             },
             columns: [
@@ -38,7 +38,7 @@ var index = function () {
             e.preventDefault();
             $.ajax({
                 type: "GET",
-                url: "/admin/next-code",
+                url: "/master/admin/next-code",
                 dataType: "JSON",
                 success: function (response) {
                     $('input[name="code"]').val(response);
@@ -64,7 +64,7 @@ var index = function () {
             }, function () {
                 $.ajax({
                     type: "DELETE",
-                    url: `/admin/${model}/destroy`,
+                    url: `/master/admin/${model}/destroy`,
                     dataType: "JSON",
                     success: function (response) {
                         swal({
@@ -87,7 +87,7 @@ var index = function () {
             var model = $(this).data('model');
             $.ajax({
                 type: "GET",
-                url: `/admin/${model}/edit`,
+                url: `/master/admin/${model}/edit`,
                 dataType: "JSON",
                 success: function (response) {
                     $('.btn-save').data('model', model);
@@ -118,7 +118,7 @@ var index = function () {
             var postData = new FormData($(".form-model")[0]);
             $.ajax({
                 type: "POST",
-                url: model ? `/admin/${model}/update` : `/admin/store`,
+                url: model ? `/master/admin/${model}/update` : `/master/admin/store`,
                 processData: false,
                 contentType: false,
                 data: postData,

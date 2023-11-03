@@ -22,11 +22,16 @@ class Transaction extends Model
 
     public function admin()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function details()
     {
         return $this->hasMany(TransactionDetail::class);
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class, 'code', 'code');
     }
 }
