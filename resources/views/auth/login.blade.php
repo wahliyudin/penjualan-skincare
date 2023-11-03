@@ -13,13 +13,13 @@
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
             </div>
-            <div class="navbar-collapse">
+            {{-- <div class="navbar-collapse">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link btn btn-white btn-round" href="{{ route('register') }}">SIGN UP</a>
                     </li>
                 </ul>
-            </div>
+            </div> --}}
         </div>
     </nav>
 @endsection
