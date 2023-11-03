@@ -44,6 +44,12 @@
                             <span>Pelanggan</span>
                         </a>
                     </li>
+                    <li class="{{ request()->routeIs('product') ? 'active open' : '' }}">
+                        <a href="{{ route('product') }}">
+                            <i class="zmdi zmdi-accounts-alt"></i>
+                            <span>Barang</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

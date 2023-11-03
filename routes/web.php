@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -44,4 +45,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('customer/{id}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
     Route::post('customer/{id}/update', [CustomerController::class, 'update'])->name('customer.update');
     Route::delete('customer/{id}/destroy', [CustomerController::class, 'destroy'])->name('customer.destroy');
+
+    Route::get('product', [ProductController::class, 'index'])->name('product');
+    Route::post('product/datatable', [ProductController::class, 'datatable'])->name('product.datatable');
+    Route::get('product/next-code', [ProductController::class, 'nextCode'])->name('product.next-code');
+    Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
+    Route::get('product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
+    Route::post('product/{id}/update', [ProductController::class, 'update'])->name('product.update');
+    Route::delete('product/{id}/destroy', [ProductController::class, 'destroy'])->name('product.destroy');
 });
