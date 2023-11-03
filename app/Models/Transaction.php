@@ -12,11 +12,17 @@ class Transaction extends Model
     protected $fillable = [
         'code',
         'customer_id',
+        'user_id',
     ];
 
     public function customer()
     {
         return $this->belongsTo(Customer::class);
+    }
+
+    public function admin()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function details()
