@@ -6,7 +6,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#user">Professors</a>
+            <a class="nav-link" data-toggle="tab" href="{{ route('home') }}">{{ auth()->user()->name }}</a>
         </li>
     </ul>
     <div class="tab-content">
@@ -21,14 +21,13 @@
                                 </a>
                             </div>
                             <div class="detail">
-                                <h4>Pro. Charlotte</h4>
-                                <small>Design Faculty</small>
+                                <h4>{{ auth()->user()->name }}</h4>
                             </div>
                         </div>
                     </li>
                     <li class="header">MAIN</li>
                     <li>
-                        <a href="index.html">
+                        <a href="{{ route('home') }}">
                             <i class="zmdi zmdi-home"></i>
                             <span>Dashboard</span>
                         </a>
@@ -47,8 +46,7 @@
                                 </a>
                             </div>
                             <div class="detail">
-                                <h4>Pro. Charlotte</h4>
-                                <small>Design Faculty</small>
+                                <h4>{{ auth()->user()->name }}</h4>
                             </div>
                         </div>
                     </li>

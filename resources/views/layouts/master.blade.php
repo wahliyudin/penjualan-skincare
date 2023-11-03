@@ -27,29 +27,7 @@
     @include('layouts.master.navbar')
     @include('layouts.master.sidebar')
     <section class="content">
-        <div class="block-header">
-            <div class="row">
-                <div class="col-lg-7 col-md-5 col-sm-12">
-                    <h2>Departments
-                        <small>Welcome to Oreo</small>
-                    </h2>
-                </div>
-                <div class="col-lg-5 col-md-7 col-sm-12">
-                    <button class="btn btn-white btn-icon btn-round float-right m-l-10" type="button">
-                        <i class="zmdi zmdi-plus"></i>
-                    </button>
-                    <ul class="breadcrumb float-md-right">
-                        <li class="breadcrumb-item">
-                            <a href="index.html"><i class="zmdi zmdi-home"></i> Oreo</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="departments.html">Departments</a>
-                        </li>
-                        <li class="breadcrumb-item active">All</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        @yield('header')
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">

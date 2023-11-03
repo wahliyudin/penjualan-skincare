@@ -4,8 +4,8 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="bars"></a>
                 <a class="navbar-brand" href="index.html">
-                    <img src="{{ asset('assets/images/logo.svg') }}" width="30" alt="Oreo">
-                    <span class="m-l-10">Oreo</span>
+                    <img src="{{ asset('assets/images/logo.svg') }}" width="30" alt="{{ env('APP_NAME') }}">
+                    <span class="m-l-10">{{ env('APP_NAME') }}</span>
                 </a>
             </div>
         </li>
