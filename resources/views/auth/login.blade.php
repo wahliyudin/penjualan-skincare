@@ -1,73 +1,72 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+@section('title', 'Sign In')
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+@section('navbar')
+    <nav class="navbar navbar-expand-lg fixed-top navbar-transparent">
+        <div class="container">
+            <div class="navbar-translate n_logo">
+                <a class="navbar-brand" href="javascript:void(0);" title="" target="_blank">Oreo</a>
+                <button class="navbar-toggler" type="button">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-white btn-round" href="{{ route('register') }}">SIGN UP</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-</div>
+    </nav>
+@endsection
+
+@section('content')
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
+        <div class="header">
+            <div class="logo-container">
+                <img src="assets/images/logo.svg" alt="">
+            </div>
+            <h5>Log in</h5>
+        </div>
+        <div class="content">
+            @if ($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    <div class="container">
+                        <div class="alert-icon">
+                            <i class="zmdi zmdi-block"></i>
+                        </div>
+                        {{ implode(', ', $errors->all(':message')) }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">
+                                <i class="zmdi zmdi-close"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            @endif
+            <div class="input-group">
+                <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Enter Email"
+                    name="email" value="{{ old('email') }}" required>
+                <span class="input-group-addon">
+                    <i class="zmdi zmdi-account-circle"></i>
+                </span>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" required placeholder="Password"
+                    class="form-control @error('password') is-invalid @enderror" />
+                <span class="input-group-addon">
+                    <i class="zmdi zmdi-lock"></i>
+                </span>
+            </div>
+        </div>
+        <div class="footer text-center">
+            <button type="submit" class="btn btn-primary btn-round btn-lg btn-block ">SIGN IN</button>
+            <h5><a href="forgot-password.html" class="link">Forgot Password?</a></h5>
+        </div>
+    </form>
 @endsection
