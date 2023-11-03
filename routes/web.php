@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,4 +27,12 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', HomeController::class)->name('home');
+
+    Route::get('admin', [AdminController::class, 'index'])->name('admin');
+    Route::post('admin/datatable', [AdminController::class, 'datatable'])->name('admin.datatable');
+    Route::get('admin/next-code', [AdminController::class, 'nextCode'])->name('admin.next-code');
+    Route::post('admin/store', [AdminController::class, 'store'])->name('admin.store');
+    Route::get('admin/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
+    Route::post('admin/{id}/update', [AdminController::class, 'update'])->name('admin.update');
+    Route::delete('admin/{id}/destroy', [AdminController::class, 'destroy'])->name('admin.destroy');
 });

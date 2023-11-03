@@ -11,6 +11,7 @@
     <link href="{{ asset('assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/color_skins.css') }}">
+    @stack('css')
 </head>
 
 <body class="theme-blush">
@@ -36,9 +37,11 @@
             </div>
         </div>
     </section>
+    @stack('modal')
     <script src="{{ asset('assets/bundles/libscripts.bundle.js') }}"></script>
     <script src="{{ asset('assets/bundles/vendorscripts.bundle.js') }}"></script>
     <script src="{{ asset('assets/bundles/datatablescripts.bundle.js') }}"></script>
     <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
+    @stack('js')
 </body>

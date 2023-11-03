@@ -26,10 +26,16 @@
                         </div>
                     </li>
                     <li class="header">MAIN</li>
-                    <li>
+                    <li class="{{ request()->routeIs('home') ? 'active open' : '' }}">
                         <a href="{{ route('home') }}">
                             <i class="zmdi zmdi-home"></i>
                             <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="{{ request()->routeIs('admin') ? 'active open' : '' }}">
+                        <a href="{{ route('admin') }}">
+                            <i class="zmdi zmdi-account"></i>
+                            <span>Admin</span>
                         </a>
                     </li>
                 </ul>
