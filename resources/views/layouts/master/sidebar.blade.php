@@ -38,6 +38,12 @@
                             <span>Admin</span>
                         </a>
                     </li>
+                    <li class="{{ request()->routeIs('customer') ? 'active open' : '' }}">
+                        <a href="{{ route('customer') }}">
+                            <i class="zmdi zmdi-accounts-alt"></i>
+                            <span>Pelanggan</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

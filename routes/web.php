@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -35,4 +36,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
     Route::post('admin/{id}/update', [AdminController::class, 'update'])->name('admin.update');
     Route::delete('admin/{id}/destroy', [AdminController::class, 'destroy'])->name('admin.destroy');
+
+    Route::get('customer', [CustomerController::class, 'index'])->name('customer');
+    Route::post('customer/datatable', [CustomerController::class, 'datatable'])->name('customer.datatable');
+    Route::get('customer/next-code', [CustomerController::class, 'nextCode'])->name('customer.next-code');
+    Route::post('customer/store', [CustomerController::class, 'store'])->name('customer.store');
+    Route::get('customer/{id}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
+    Route::post('customer/{id}/update', [CustomerController::class, 'update'])->name('customer.update');
+    Route::delete('customer/{id}/destroy', [CustomerController::class, 'destroy'])->name('customer.destroy');
 });
