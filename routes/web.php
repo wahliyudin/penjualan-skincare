@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -45,6 +46,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('customer/{id}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
     Route::post('customer/{id}/update', [CustomerController::class, 'update'])->name('customer.update');
     Route::delete('customer/{id}/destroy', [CustomerController::class, 'destroy'])->name('customer.destroy');
+
+    Route::get('supplier', [SupplierController::class, 'index'])->name('supplier');
+    Route::post('supplier/datatable', [SupplierController::class, 'datatable'])->name('supplier.datatable');
+    Route::get('supplier/next-code', [SupplierController::class, 'nextCode'])->name('supplier.next-code');
+    Route::post('supplier/store', [SupplierController::class, 'store'])->name('supplier.store');
+    Route::get('supplier/{id}/edit', [SupplierController::class, 'edit'])->name('supplier.edit');
+    Route::post('supplier/{id}/update', [SupplierController::class, 'update'])->name('supplier.update');
+    Route::delete('supplier/{id}/destroy', [SupplierController::class, 'destroy'])->name('supplier.destroy');
 
     Route::get('product', [ProductController::class, 'index'])->name('product');
     Route::post('product/datatable', [ProductController::class, 'datatable'])->name('product.datatable');

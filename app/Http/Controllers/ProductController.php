@@ -19,8 +19,14 @@ class ProductController extends Controller
 
     public function datatable()
     {
-        $data = Product::query()->get();
+        $data = Product::query()->with('supplier')->get();
         return datatables()->of($data)
+            ->editColumn('price', function (Product $product) {
+                return number_format($product->price, 0, ',', '.');
+            })
+            ->addColumn('supplier', function (Product $product) {
+                return $product->supplier?->code . ' - ' . $product->supplier?->name;
+            })
             ->addColumn('action', function (Product $product) {
                 return view('product.action', compact('product'))->render();
             })
@@ -63,7 +69,7 @@ class ProductController extends Controller
             return response()->json([
                 'code' => $product->code,
                 'name' => $product->name,
-                'price' => number_format($product->price, '.', ','),
+                'price' => number_format($product->price, 0, ',', '.'),
                 'stock' => $product->stock,
                 'supplier_id' => $product->supplier_id,
             ]);
