@@ -105,12 +105,14 @@ var index = function () {
         $('select[name="product_id"]').change(function (e) {
             e.preventDefault();
             var product = $(this).val();
+            var code = $('input[name="code"]').val();
             $.ajax({
                 type: "GET",
-                url: `/transaction/product/${product}`,
+                url: `/transaction/product/${code}/${product}`,
                 dataType: "JSON",
                 success: function (response) {
                     $('input[name="price"]').val(response.price);
+                    $('input[name="stock"]').val(response.stock);
                     var price = $('input[name="price"]').val();
                     var quantity = $('input[name="quantity"]').val();
                     var result = quantity * parseInt(price.split('.').join(""));
@@ -119,9 +121,15 @@ var index = function () {
             });
         });
 
-        $('input[name="quantity"]').keyup(function (e) {
+        $('input[name="quantity"]').change(function (e) {
             e.preventDefault();
             var val = $(this).val();
+            var stock = $('input[name="stock"]').val();
+            if (parseInt(val) > parseInt(stock)) {
+                $('input[name="quantity"]').val(stock);
+                val = stock;
+                alert('Stok yang tersedia tidak cukup!');
+            }
             var price = $('input[name="price"]').val();
             var result = val * parseInt(price.split('.').join(""));
             $('input[name="sub_total"]').val(result).trigger('input');

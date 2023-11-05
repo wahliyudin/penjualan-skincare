@@ -46,12 +46,18 @@ class TransactionController extends Controller
             ->make();
     }
 
-    public function product($id)
+    public function product($code, $id)
     {
         try {
             $product = Product::query()->findOrFail($id);
+            $stock = $product->stock;
+            $carts = Cart::query()->where('code', $code)->where('product_id', $id)->get();
+            foreach ($carts as $cart) {
+                $stock -= $cart->quantity;
+            }
             return response()->json([
-                'price' => number_format($product->price, 0, ',', '.')
+                'price' => number_format($product->price, 0, ',', '.'),
+                'stock' => $stock
             ]);
         } catch (\Throwable $th) {
             throw $th;
@@ -123,6 +129,10 @@ class TransactionController extends Controller
                         'product_id' => $cart->product_id,
                         'quantity' => $cart->quantity,
                     ];
+                    $product = Product::query()->find($cart->product_id);
+                    $product->update([
+                        'stock' => $product->stock - $cart->quantity
+                    ]);
                 }
                 $transaction->details()->createMany($carts);
                 $transaction->carts()->delete();

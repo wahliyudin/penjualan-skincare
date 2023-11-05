@@ -111,6 +111,9 @@
                                     placeholder="Harga">
                             </div>
                             <div class="col-md-12 my-2">
+                                <input type="text" class="form-control" name="stock" disabled placeholder="Stok">
+                            </div>
+                            <div class="col-md-12 my-2">
                                 <input type="number" class="form-control" name="quantity" placeholder="Jumlah">
                             </div>
                             <div class="col-md-12 my-2">

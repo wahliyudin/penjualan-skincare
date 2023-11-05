@@ -30,7 +30,7 @@ class SaleController extends Controller
         }
         return Pdf::loadView('report.sale.pdf-by-period', [
             'data' => TransactionDetail::query()
-                ->whereBetween('created_at', [$request->start_date, $request->end_date])
+                ->whereBetween('created_at', [$request->start_date, Carbon::parse($request->end_date)->addDay()->format('Y-m-d')])
                 ->with(['product', 'transaction' => function ($query) {
                     $query->with(['admin', 'customer']);
                 }])->get(),

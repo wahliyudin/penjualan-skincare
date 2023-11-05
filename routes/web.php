@@ -77,7 +77,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('transaction/datatable', [TransactionController::class, 'datatable'])->name('transaction.datatable');
     Route::post('transaction/store', [TransactionController::class, 'store'])->name('transaction.store');
     Route::post('transaction/cart/store', [TransactionController::class, 'addToCart'])->name('transaction.cart.store');
-    Route::get('transaction/product/{id}', [TransactionController::class, 'product'])->name('transaction.product');
+    Route::get('transaction/product/{code}/{id}', [TransactionController::class, 'product'])->name('transaction.product');
     Route::get('transaction/cart/{id}/edit', [TransactionController::class, 'editCart'])->name('transaction.cart.edit');
     Route::post('transaction/cart/{id}/update', [TransactionController::class, 'updateCart'])->name('transaction.cart.update');
     Route::delete('transaction/cart/{id}/destroy', [TransactionController::class, 'destroyCart'])->name('transaction.cart.destroy');
