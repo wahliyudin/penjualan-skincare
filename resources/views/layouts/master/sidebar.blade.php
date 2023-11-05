@@ -73,11 +73,33 @@
                             <span>Transaksi</span>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="">
-                            <i class="zmdi zmdi-accounts-alt"></i>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="zmdi zmdi-lock"></i>
                             <span>Laporan</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a target="_blank" href="{{ route('report.admin.pdf') }}">
+                                    <span>Data Admin</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="{{ route('report.customer.pdf') }}">
+                                    <span>Data Pelanggan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="{{ route('report.product.pdf') }}">
+                                    <span>Data Barang</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="{{ route('report.sale') }}">
+                                    <span>Data Penjualan</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

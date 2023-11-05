@@ -4,6 +4,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Report\AdminController as ReportAdminController;
+use App\Http\Controllers\Report\CustomerController as ReportCustomerController;
+use App\Http\Controllers\Report\ProductController as ReportProductController;
+use App\Http\Controllers\Report\SaleController as ReportSaleController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TransactionController;
@@ -76,4 +81,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('transaction/cart/{id}/edit', [TransactionController::class, 'editCart'])->name('transaction.cart.edit');
     Route::post('transaction/cart/{id}/update', [TransactionController::class, 'updateCart'])->name('transaction.cart.update');
     Route::delete('transaction/cart/{id}/destroy', [TransactionController::class, 'destroyCart'])->name('transaction.cart.destroy');
+
+    Route::get('report/admin/pdf', ReportAdminController::class)->name('report.admin.pdf');
+    Route::get('report/customer/pdf', ReportCustomerController::class)->name('report.customer.pdf');
+    Route::get('report/product/pdf', ReportProductController::class)->name('report.product.pdf');
+    Route::get('report/sale', [ReportSaleController::class, 'index'])->name('report.sale');
+    Route::get('report/sale/export', [ReportSaleController::class, 'export'])->name('report.sale.export');
+    Route::get('report/sale/export-by-period', [ReportSaleController::class, 'exportByPeriod'])->name('report.sale.export-by-period');
 });
