@@ -13,29 +13,16 @@
         <div class="tab-pane stretchRight active" id="dashboard">
             <div class="menu">
                 <ul class="list">
-                    <li>
-                        <div class="user-info">
-                            <div class="image">
-                                <a href="profile.html">
-                                    <img src="assets/images/profile_av.jpg" alt="User">
-                                </a>
-                            </div>
-                            <div class="detail">
-                                <h4>{{ auth()->user()->name }}</h4>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="header">MAIN</li>
                     <li class="{{ request()->routeIs('home') ? 'active open' : '' }}">
                         <a href="{{ route('home') }}">
-                            <i class="zmdi zmdi-home"></i>
+                            {{-- <i class="zmdi zmdi-home"></i> --}}
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li
                         class="{{ request()->routeIs('master.admin', 'master.customer', 'master.supplier', 'master.product') ? 'active open' : '' }}">
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="zmdi zmdi-lock"></i>
+                            {{-- <i class="material-icons">add</i> --}}
                             <span>Master</span>
                         </a>
                         <ul class="ml-menu">
@@ -63,19 +50,19 @@
                     </li>
                     <li class="{{ request()->routeIs('sale') ? 'active open' : '' }}">
                         <a href="{{ route('sale') }}">
-                            <i class="zmdi zmdi-accounts-alt"></i>
+                            {{-- <i class="zmdi zmdi-accounts-alt"></i> --}}
                             <span>Penjualan</span>
                         </a>
                     </li>
                     <li class="{{ request()->routeIs('transaction') ? 'active open' : '' }}">
                         <a href="{{ route('transaction') }}">
-                            <i class="zmdi zmdi-accounts-alt"></i>
+                            {{-- <i class="zmdi zmdi-accounts-alt"></i> --}}
                             <span>Transaksi</span>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="zmdi zmdi-lock"></i>
+                            {{-- <i class="zmdi zmdi-lock"></i> --}}
                             <span>Laporan</span>
                         </a>
                         <ul class="ml-menu">
@@ -107,18 +94,6 @@
         <div class="tab-pane stretchLeft" id="user">
             <div class="menu">
                 <ul class="list">
-                    <li>
-                        <div class="user-info m-b-20 p-b-15">
-                            <div class="image">
-                                <a href="profile.html">
-                                    <img src="{{ asset('assets/images/profile_av.jpg') }}" alt="User">
-                                </a>
-                            </div>
-                            <div class="detail">
-                                <h4>{{ auth()->user()->name }}</h4>
-                            </div>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
