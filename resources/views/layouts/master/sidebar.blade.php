@@ -15,14 +15,14 @@
                 <ul class="list">
                     <li class="{{ request()->routeIs('home') ? 'active open' : '' }}">
                         <a href="{{ route('home') }}">
-                            {{-- <i class="zmdi zmdi-home"></i> --}}
+                            <i class="fa-solid fa-house"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li
                         class="{{ request()->routeIs('master.admin', 'master.customer', 'master.supplier', 'master.product') ? 'active open' : '' }}">
                         <a href="javascript:void(0);" class="menu-toggle">
-                            {{-- <i class="material-icons">add</i> --}}
+                            <i class="fa-solid fa-boxes-stacked"></i>
                             <span>Master</span>
                         </a>
                         <ul class="ml-menu">
@@ -50,19 +50,19 @@
                     </li>
                     <li class="{{ request()->routeIs('sale') ? 'active open' : '' }}">
                         <a href="{{ route('sale') }}">
-                            {{-- <i class="zmdi zmdi-accounts-alt"></i> --}}
+                            <i class="fa-solid fa-money-bill-wave"></i>
                             <span>Penjualan</span>
                         </a>
                     </li>
                     <li class="{{ request()->routeIs('transaction') ? 'active open' : '' }}">
                         <a href="{{ route('transaction') }}">
-                            {{-- <i class="zmdi zmdi-accounts-alt"></i> --}}
+                            <i class="fa-solid fa-handshake"></i>
                             <span>Transaksi</span>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                            {{-- <i class="zmdi zmdi-lock"></i> --}}
+                            <i class="fa-solid fa-file-invoice"></i>
                             <span>Laporan</span>
                         </a>
                         <ul class="ml-menu">

@@ -11,6 +11,7 @@
     <link href="{{ asset('assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/color_skins.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
     @stack('css')
 </head>
 
@@ -43,5 +44,6 @@
     <script src="{{ asset('assets/bundles/datatablescripts.bundle.js') }}"></script>
     <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
+    {{-- <script src="{{ asset('assets/plugins/fontawesome/js/all.min.js') }}"></script> --}}
     @stack('js')
 </body>

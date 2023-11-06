@@ -21,20 +21,61 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{ __('You are logged in!') }}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="card top_counter">
+                    <div class="body">
+                        <div class="icon xl-slategray">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="content">
+                            <div class="text">Data Admin</div>
+                            <h5 class="number count-to" data-from="0" data-to="2049" data-speed="2500"
+                                data-fresh-interval="700">2049</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card top_counter">
+                    <div class="body">
+                        <div class="icon xl-slategray">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="content">
+                            <div class="text">Data Pelanggan</div>
+                            <h5 class="number count-to" data-from="0" data-to="2049" data-speed="2500"
+                                data-fresh-interval="700">2049</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card top_counter">
+                    <div class="body">
+                        <div class="icon xl-slategray">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </div>
+                        <div class="content">
+                            <div class="text">Data Barang</div>
+                            <h5 class="number count-to" data-from="0" data-to="2049" data-speed="2500"
+                                data-fresh-interval="700">2049</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card top_counter">
+                    <div class="body">
+                        <div class="icon xl-slategray">
+                            <i class="fa-solid fa-money-bill-wave"></i>
+                        </div>
+                        <div class="content">
+                            <div class="text">Data Penjualan</div>
+                            <h5 class="number count-to" data-from="0" data-to="2049" data-speed="2500"
+                                data-fresh-interval="700">2049</h5>
+                        </div>
                     </div>
                 </div>
             </div>
