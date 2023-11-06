@@ -31,8 +31,8 @@
                         </div>
                         <div class="content">
                             <div class="text">Data Admin</div>
-                            <h5 class="number count-to" data-from="0" data-to="2049" data-speed="2500"
-                                data-fresh-interval="700">2049</h5>
+                            <h5 class="number count-to" data-from="0" data-to="{{ $total_admin }}" data-speed="1000"
+                                data-fresh-interval="700">{{ $total_admin }}</h5>
                         </div>
                     </div>
                 </div>
@@ -45,8 +45,8 @@
                         </div>
                         <div class="content">
                             <div class="text">Data Pelanggan</div>
-                            <h5 class="number count-to" data-from="0" data-to="2049" data-speed="2500"
-                                data-fresh-interval="700">2049</h5>
+                            <h5 class="number count-to" data-from="0" data-to="{{ $total_customer }}" data-speed="1000"
+                                data-fresh-interval="700">{{ $total_customer }}</h5>
                         </div>
                     </div>
                 </div>
@@ -59,8 +59,8 @@
                         </div>
                         <div class="content">
                             <div class="text">Data Barang</div>
-                            <h5 class="number count-to" data-from="0" data-to="2049" data-speed="2500"
-                                data-fresh-interval="700">2049</h5>
+                            <h5 class="number count-to" data-from="0" data-to="{{ $total_product }}" data-speed="1000"
+                                data-fresh-interval="700">{{ $total_product }}</h5>
                         </div>
                     </div>
                 </div>
@@ -73,8 +73,8 @@
                         </div>
                         <div class="content">
                             <div class="text">Data Penjualan</div>
-                            <h5 class="number count-to" data-from="0" data-to="2049" data-speed="2500"
-                                data-fresh-interval="700">2049</h5>
+                            <h5 class="number count-to" data-from="0" data-to="{{ $total_sale }}" data-speed="1000"
+                                data-fresh-interval="700">{{ $total_sale }}</h5>
                         </div>
                     </div>
                 </div>
