@@ -80,6 +80,8 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end mt-4">
+                    <a href="{{ route('transaction.pdf', $code) }}" target="_blank" class="btn btn-info btn-round">Cetak
+                        Transaksi</a>
                     <button type="button" class="btn btn-primary btn-round btn-save-transaction">Simpan</button>
                 </div>
             </form>

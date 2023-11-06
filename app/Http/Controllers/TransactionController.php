@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Models\Customer;
 use App\Models\Product;
 use App\Models\Transaction;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -144,5 +145,12 @@ class TransactionController extends Controller
         } catch (\Throwable $th) {
             throw $th;
         }
+    }
+
+    public function pdf($code)
+    {
+        return Pdf::loadView('transaction.pdf', [
+            'data' => Cart::query()->where('code', $code)->with(['product'])->get()
+        ])->stream();
     }
 }

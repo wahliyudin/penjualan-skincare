@@ -81,6 +81,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('transaction/cart/{id}/edit', [TransactionController::class, 'editCart'])->name('transaction.cart.edit');
     Route::post('transaction/cart/{id}/update', [TransactionController::class, 'updateCart'])->name('transaction.cart.update');
     Route::delete('transaction/cart/{id}/destroy', [TransactionController::class, 'destroyCart'])->name('transaction.cart.destroy');
+    Route::get('transaction/{code}/pdf', [TransactionController::class, 'pdf'])->name('transaction.pdf');
 
     Route::get('report/admin/pdf', ReportAdminController::class)->name('report.admin.pdf');
     Route::get('report/customer/pdf', ReportCustomerController::class)->name('report.customer.pdf');
